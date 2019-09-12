@@ -1,4 +1,4 @@
-# laravel-force-https-middleware
+# Force https in Laravel
 
 Laravel module which force all request to https protocol
 
@@ -27,8 +27,8 @@ protected $middleware = [
     \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     \App\Http\Middleware\TrustProxies::class,
 
-    // Appending custom middleware 
-    \phucnguyenvn\Http\Middleware\ForceHttps::class
+    // Appending custom middleware
+    \PhucNguyenVn\Http\Middleware\ForceHttps::class
 ];
 ```
 
@@ -36,3 +36,12 @@ Now the middleware will redirect every request to https if:
 
 The current request comes with no secure protocol (http)
 If your environment is equals to production.
+
+## Test
+```bash
+composer test
+```
+
+## Credits
+- [Phuc Nguyen](https://github.com/phucnguyenvn)
+- [Ngoc Linh Pham](https://github.com/pnlinh) 
