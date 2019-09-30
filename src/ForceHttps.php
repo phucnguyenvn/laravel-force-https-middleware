@@ -1,17 +1,19 @@
-<?php 
+<?php
 
-namespace phucnguyenvn\Http\Middleware;
+namespace PhucNguyenVn\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
-class ForceHttps {
-    public function handle($request, Closure $next)
+class ForceHttps
+{
+    public function handle(Request $request, Closure $next)
     {
-        if (!$request->secure() && App::environment() === 'production') {
+        if (! $request->secure() && App::environment() === 'production') {
             return redirect()->secure($request->getRequestUri());
         }
 
-        return $next($request); 
+        return $next($request);
     }
 }
